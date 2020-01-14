@@ -82,7 +82,7 @@ def decode():
     print('DECODED WORD:\n')
     print(word_decoded)
 
-doing = input('code(1); decode(2): ') 
+doing = input('\ncode(1)\ndecode(2)\n\nSelect: ') 
 
 if doing == '1':
     code()
