@@ -18,11 +18,10 @@ def code():
                         ',', '.', '-', '=', ':', ';', '[', ']', '(', ')', '_', '*', '/', "'", '"', '?', '!', '$', '#', '&', '@', '|']
     random.shuffle(key_ncode)
 
-    #print(key_decode)
-    #print(key_ncode)
+
     
 
-    word = input('Word: ')
+    word = input('Text: ')
 
     word_coded = ''
 
@@ -47,7 +46,7 @@ def code():
     print(word_coded)
 
 def decode():
-    #word = input('Word: ')
+
     try:
         f = open('key.txt', 'r')
         all_data = f.read().split('&&&')
@@ -55,8 +54,9 @@ def decode():
         key = all_data[1]
         f.close()
     except:
-        word = input('Word: ')
+        word = input('Cipher text: ')
         key = input('key: ')
+        
     key_decode = [   'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 
                         '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', ' ', 
                         'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ь', 'ъ', 'э', 'ю', 'я', 
@@ -64,11 +64,11 @@ def decode():
                         'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ь', 'Ъ', 'Э', 'Ю', 'Я', 
                         ',', '.', '-', '=', ':', ';', '[', ']', '(', ')', '_', '*', '/', "'", '"', '?', '!', '$', '#', '&', '@', '|']
 
-    # print(len(key_decode))
+
     key = key.split('\\')
 
     del key[len(key)-1]
-    #print(key)
+
 
     word_decoded = ''
     for char in word:
@@ -81,6 +81,9 @@ def decode():
 
     print('DECODED WORD:\n')
     print(word_decoded)
+    f = open('decrypted.txt', 'w')
+    f.write(word_decoded)
+    f.close()
 
 doing = input('\ncode(1)\ndecode(2)\n\nSelect: ') 
 
