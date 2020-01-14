@@ -56,10 +56,13 @@ def decode():
     f.write(word_decoded)
     f.close()
 
-doing = input('\ncode(1)\ndecode(2)\n\nSelect: ') 
+try:
+    doing = input('\ncode(1)\ndecode(2)\n\nSelect: ') 
 
-if doing == '1':
-    code()
+    if doing == '1':
+        code()
 
-else:
-    decode()
+    else:
+        decode()
+except KeyboardInterrupt:
+    pass
