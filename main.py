@@ -27,9 +27,12 @@ def code():
     try:
         for char in word:
             word_coded += ncode_dict[char]
-    except:
-            print("Error, can't encoding.")
-            sys.exit()
+    except KeyError as Key_Error:
+        print("Invalid character: " + str(Key_Error))
+        sys.exit()
+    except Exception as e:
+        print(e)
+        sys.exit()
     key = ''
     for char in key_ncode:
         key += char + '\\'
@@ -57,11 +60,15 @@ def decode():
     del key[len(key)-1]
     word_decoded = ''
     decode_dict = dict(zip(key, key_list[:]))
-    for char in message:
-        try:
+    try:
+        for char in message:
             word_decoded += decode_dict[char]
-        except:
-            print("Error, can't decoding.")
+    except KeyError as Key_Error:
+        print("Invalid character: " + str(Key_Error))
+        sys.exit()
+    except Exception as e:
+        print(e)
+        sys.exit()
     print('DECODED WORD:\n')
     print(word_decoded)
     f = open('decrypted.txt', 'w')
@@ -89,9 +96,12 @@ def new_mess():
     try:
         for char in word:
             word_coded += ncode_dict[char]
-    except:
-            print("Error, can't encoding.")
-            sys.exit()
+    except KeyError as Key_Error:
+        print("Invalid character: " + str(Key_Error))
+        sys.exit()
+    except Exception as e:
+        print(e)
+        sys.exit()
     key = ''
     for char in key_ncode:
         key += char + '\\'
