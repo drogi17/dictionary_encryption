@@ -52,7 +52,7 @@ def decode():
         with open('key.txt', 'r') as f:
             key = f.read()
         with open('message.txt', 'r') as f:
-            message = f.read()
+            message = f.read().replace('\n', '')
     except:
         message = input('Cipher text: ')
         key = input('key: ')
